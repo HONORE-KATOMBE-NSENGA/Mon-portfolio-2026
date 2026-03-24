@@ -91,3 +91,64 @@ a.active::after {
 td{
     border: 1px solid black;
 }
+
+
+table{border: 1px solid black ;
+}
+
+th {
+    border: 1px solid black ;
+}
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    /*pour aligner le texte*/
+    text-align: center;
+    /* nous permet de mettre la marge l'espace entrte deux chose superposer */
+    margin-top: 160px;
+
+}
+.hero img{
+    width: 300px;
+    /* la taille de l'image */
+    height: 300px;
+    object-fit: cover;
+    /* le bordure de la photo */
+    border-radius: 50%;
+    border: 8px solid var(--violete-doux);
+}
+.hero h1 {
+    color: var(--violete-doux);
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+}
+.hero p {
+    color: var(--gris-fonce);
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+}
+.hero a {
+    text-decoration: none;
+    display: inline-block;
+    background-color: var(--violete-doux) ;
+    color: white;
+    padding: 15px 30px;
+    /*le taille des bordure */
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1.1px;
+    font-weight: 600px ;
+    margin-top: 1rem;
+    transition: backgroud-color 0.3s ease, transform 0.2s ease;
+}
+.hero a:hover {
+    background-color: var(--violet-fonce) ;
+    transition: translatey(-4px);
+}
+.hero {
+    font-size: 1.1rem;
+    color: var(--gris-fonce);
+}
