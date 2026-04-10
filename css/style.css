@@ -261,3 +261,116 @@ footer a:hover {
     color: var(--orange-vif);
     transform:  translate(-3px);
 }
+/* Styles pour la page Contact */
+.contact-container {
+    max-width: 1000px;
+    margin: 100px auto;
+    padding: 0 20px;
+}
+
+.contact-grid {
+    display: flex;
+    gap: 4rem;
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.contact-info, .contact-form {
+    flex: 1;
+}
+
+.contact-info h3 {
+    color: var(--violete-fonce);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--gris-fonce);
+}
+
+.contact-info i {
+    color: var(--violete-doux);
+    margin-right: 10px;
+    width: 20px;
+}
+
+/* Boutons réseaux sociaux spécifiques */
+.social-apps {
+    margin-top: 2rem;
+    display: flex;
+    gap: 10px;
+}
+
+.app-link {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s;
+}
+
+.whatsapp { background-color: #25D366; }
+.telegram { background-color: #0088cc; }
+
+.app-link:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+/* Formulaire */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--gris-tres-fonce);
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--gris-claire);
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--violete-doux);
+}
+
+.btn-submit {
+    background-color: var(--violete-doux);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: var(--violete-fonce);
+}
+
+/* Responsive simple */
+@media (max-width: 768px) {
+    .contact-grid {
+        flex-direction: column;
+        padding: 20px;
+    }
+}
