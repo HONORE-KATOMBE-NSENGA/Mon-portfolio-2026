@@ -25,9 +25,85 @@
             </ul>
         </nav>
     </header>
-        <main>
-            <h1> contactez-nous </h1> 
-        </main>
+        <main class="divertissement-main">
+    <section class="divertissement-header">
+        <h2>Mes Réalisations</h2>
+        <p>Découvrez mes mini-projets interactifs codés en HTML, CSS et JavaScript pur.</p>
+    </section>
+
+    <section class="interactive-apps">
+        <div class="app-card">
+            <div class="app-header">
+                <h3><i class="fa-solid fa-laptop-code"></i> Projet Web : To-Do List</h3>
+            </div>
+            <div class="app-content">
+                <div class="todo-input-group">
+                    <input type="text" id="taskInput" placeholder="Ajouter une tâche...">
+                    <button onclick="addTask()"><i class="fa-solid fa-plus"></i></button>
+                </div>
+                <ul id="taskList">
+                    <li><span>Finaliser mon portfolio</span> <button onclick="this.parentElement.remove()"><i class="fa-solid fa-trash"></i></button></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="app-card mobile-mockup">
+            <div class="app-header">
+                <h3><i class="fa-solid fa-mobile-screen-button"></i> App Mobile : Météo</h3>
+            </div>
+            <div class="app-content" id="weatherContent">
+                <div class="loading"><i class="fa-solid fa-spinner fa-spin"></i> Chargement...</div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Logique de la To-Do List
+        function addTask() {
+            const input = document.getElementById('taskInput');
+            const taskText = input.value.trim();
+            
+            if (taskText === '') return; // Empêche l'ajout de tâches vides
+            
+            const ul = document.getElementById('taskList');
+            const li = document.createElement('li');
+            
+            // Création du HTML pour la nouvelle tâche
+            li.innerHTML = `<span>${taskText}</span> <button onclick="this.parentElement.remove()"><i class="fa-solid fa-trash"></i></button>`;
+            
+            ul.appendChild(li);
+            input.value = ''; // Réinitialise le champ texte
+        }
+
+        // Logique de l'application Météo (API Open-Meteo pour Lubumbashi)
+        async function fetchWeather() {
+            const weatherContent = document.getElementById('weatherContent');
+            try {
+                // Coordonnées de Lubumbashi (Latitude: -11.6609, Longitude: 27.4794)
+                const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-11.6609&longitude=27.4794&current_weather=true');
+                const data = await res.json();
+                
+                const temp = data.current_weather.temperature;
+                const wind = data.current_weather.windspeed;
+                
+                weatherContent.innerHTML = `
+                    <div class="weather-widget">
+                        <i class="fa-solid fa-cloud-sun weather-icon"></i>
+                        <div class="temp">${temp}°C</div>
+                        <div class="location"><i class="fa-solid fa-location-dot"></i> Lubumbashi, RDC</div>
+                        <div class="details">Vitesse du vent : ${wind} km/h</div>
+                        <div class="live-status"><i class="fa-solid fa-circle"></i> Données en temps réel</div>
+                    </div>
+                `;
+            } catch (error) {
+                weatherContent.innerHTML = `<div class="error">Impossible de charger la météo. Vérifiez votre connexion internet.</div>`;
+            }
+        }
+        
+        // Exécute la fonction au chargement de la page
+        fetchWeather();
+    </script>
+</main>
     <footer>
         <div>
             <p>

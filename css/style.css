@@ -13,7 +13,7 @@ h1{
     /* le titre */
 }
 body{
-    background-color: var(--gris-tres-clair);
+    background-color: rgb(222, 251, 255); 
     font-family: "Roboto", sans-serif;
     line-height: 1.6;
 }
@@ -26,9 +26,9 @@ body{
 
 header{
     /* pour la couleur de la barre de titre */
-    background-color: white;
+    background-color: rgb(222, 251, 255);
     /* nous permet de mettre l'aumbre sur nimporte quel element */
-    box-shadow: 2px  6px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 4px  6px 10px rgba(0, 0, 0, 0.05);
     /* sticky nous permet d'epeingler un element sur notre site */
     position: sticky;
     /**/
@@ -261,116 +261,491 @@ footer a:hover {
     color: var(--orange-vif);
     transform:  translate(-3px);
 }
-/* Styles pour la page Contact */
+/* --- Styles additionnels pour la page Contact --- */
+
+.contact-section {
+    padding: 5rem 10%;
+}
+
 .contact-container {
-    max-width: 1000px;
-    margin: 100px auto;
-    padding: 0 20px;
-}
-
-.contact-grid {
     display: flex;
+    justify-content: space-between;
     gap: 4rem;
-    background: #fff;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: flex-start;
 }
 
-.contact-info, .contact-form {
+.info-contact {
     flex: 1;
 }
 
-.contact-info h3 {
-    color: var(--violete-fonce);
-    margin-bottom: 1.5rem;
-    font-size: 1.8rem;
+.info-contact h2 {
+    text-align: left;
 }
 
-.contact-info p {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
+.info-contact h2::after {
+    margin: 1.2rem 0; /* Aligne la barre violette à gauche */
+}
+
+.info-contact p {
     color: var(--gris-fonce);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
 }
 
-.contact-info i {
-    color: var(--violete-doux);
-    margin-right: 10px;
-    width: 20px;
+.phone-number {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--gris-tres-fonce);
+    margin: 1.5rem 0;
 }
 
-/* Boutons réseaux sociaux spécifiques */
-.social-apps {
-    margin-top: 2rem;
+.social-contact {
     display: flex;
-    gap: 10px;
+    gap: 15px;
+    margin-top: 1rem;
 }
 
-.app-link {
+.social-contact a {
     text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 8px;
     color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
     font-weight: bold;
     display: flex;
     align-items: center;
+    gap: 10px;
+    transition: transform 0.2s ease;
+}
+
+.social-contact a:hover {
+    transform: translateY(-3px);
+}
+
+/* --- Page Projets --- */
+.projets-page {
+    padding: 4rem 5%;
+}
+
+.projets-header h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.projets-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes comme sur l'image */
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.projet-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.projet-card:hover {
+    transform: translateY(-10px);
+}
+
+.projet-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 4px solid var(--violete-doux);
+}
+
+.projet-content {
+    padding: 1.5rem;
+}
+
+.projet-content h3 {
+    color: var(--violete-fonce);
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+}
+
+.projet-content p {
+    color: var(--gris-fonce);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    height: 3.6rem; /* Pour garder l'alignement */
+    overflow: hidden;
+}
+
+.tags {
+    margin-bottom: 1.5rem;
+    display: flex;
     gap: 8px;
-    transition: transform 0.2s;
+    flex-wrap: wrap;
+}
+
+.tags span {
+    background-color: #f0f0ff;
+    color: var(--violete-doux);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.projet-links {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--gris-claire);
+    padding-top: 1rem;
+}
+
+.projet-links a, .projet-links span {
+    text-decoration: none;
+    color: var(--gris-tres-fonce);
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.projet-links a:hover {
+    color: var(--violete-doux);
+}
+
+/* Adaptabilité pour tablettes et mobiles */
+@media (max-width: 992px) {
+    .projets-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .projets-grid { grid-template-columns: 1fr; }
 }
 
 .whatsapp { background-color: #25D366; }
 .telegram { background-color: #0088cc; }
 
-.app-link:hover {
-    transform: translateY(-3px);
-    opacity: 0.9;
+/* Formulaire */
+.contact-form {
+    flex: 1;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 2px 6px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* Formulaire */
-.form-group {
+.input-group {
     margin-bottom: 1.5rem;
 }
 
-.form-group label {
+.input-group label {
     display: block;
     margin-bottom: 8px;
     color: var(--gris-tres-fonce);
-    font-weight: 500;
+    font-weight: bold;
 }
 
-.form-group input {
+.input-group input {
     width: 100%;
     padding: 12px;
     border: 1px solid var(--gris-claire);
     border-radius: 8px;
     outline: none;
-    transition: border-color 0.3s;
+    font-family: inherit;
 }
 
-.form-group input:focus {
+.input-group input:focus {
     border-color: var(--violete-doux);
 }
 
-.btn-submit {
+.btn-contact {
+    width: 100%;
     background-color: var(--violete-doux);
     color: white;
+    padding: 15px;
     border: none;
-    padding: 12px 30px;
     border-radius: 50px;
     cursor: pointer;
     font-weight: bold;
     text-transform: uppercase;
-    transition: background 0.3s;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
 }
 
-.btn-submit:hover {
+.btn-contact:hover {
     background-color: var(--violete-fonce);
 }
 
-/* Responsive simple */
+/* Adaptabilité Mobile */
 @media (max-width: 768px) {
-    .contact-grid {
+    .contact-container {
         flex-direction: column;
-        padding: 20px;
+        padding: 0;
     }
+    
+    .contact-section {
+        padding: 2rem 5%;
+    }
+}
+
+/* --- Page Passions --- */
+.passions-page {
+    padding: 4rem 10%;
+    background-color:  rgb(222, 251, 255);
+}
+
+.passions-intro {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.passions-intro p {
+    color: var(--gris-fonce);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.passions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+
+.passion-item {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.passion-item.reversed {
+    flex-direction: row-reverse;
+}
+
+.passion-img {
+    flex: 1;
+}
+
+.passion-img img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.passion-text {
+    flex: 1;
+}
+
+.passion-text h3 {
+    color: var(--violete-doux);
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.passion-text h3::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: var(--orange-vif);
+    margin-top: 10px;
+}
+
+.passion-text p {
+    color: var(--gris-fonce);
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .passion-item, .passion-item.reversed {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .passion-img img {
+        height: 250px;
+    }
+}
+
+/* --- Page Divertissement --- */
+
+.divertissement-main {
+    padding: 4rem 10%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.divertissement-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.divertissement-header p {
+    color: var(--gris-fonce);
+    font-size: 1.2rem;
+}
+
+.interactive-apps {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+/* Style des "cartes" des applications */
+.app-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 450px;
+    overflow: hidden;
+    border: 1px solid var(--gris-claire);
+}
+
+/* Design spécifique pour l'app mobile (simule un écran de téléphone) */
+.app-card.mobile-mockup {
+    max-width: 320px;
+    border: 8px solid var(--gris-tres-fonce);
+    border-radius: 35px;
+}
+
+.app-header {
+    background-color: var(--violete-doux);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.app-header h3 {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.app-content {
+    padding: 2rem;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- App 1 : To-Do List --- */
+.todo-input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.todo-input-group input {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid var(--gris-claire);
+    border-radius: 8px;
+    outline: none;
+    font-family: inherit;
+}
+
+.todo-input-group input:focus {
+    border-color: var(--violete-doux);
+}
+
+.todo-input-group button {
+    background: var(--violete-doux);
+    color: white;
+    border: none;
+    padding: 0 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+}
+
+.todo-input-group button:hover {
+    background: var(--violete-fonce);
+}
+
+#taskList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#taskList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--gris-tres-clair);
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    color: var(--gris-tres-fonce);
+    font-weight: 500;
+}
+
+#taskList li button {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#taskList li button:hover {
+    transform: scale(1.1);
+}
+
+/* --- App 2 : Météo Mobile --- */
+.weather-widget {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.weather-icon {
+    font-size: 5rem;
+    color: var(--orange-vif);
+    margin-bottom: 1.5rem;
+}
+
+.weather-widget .temp {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: var(--violete-fonce);
+    margin-bottom: 0.5rem;
+}
+
+.weather-widget .location {
+    font-size: 1.3rem;
+    color: var(--gris-tres-fonce);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.weather-widget .details {
+    color: var(--gris-fonce);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.weather-widget .live-status {
+    color: #2ecc71;
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+
+.loading, .error {
+    text-align: center;
+    color: var(--gris-fonce);
+    margin-top: 4rem;
+    font-size: 1.2rem;
 }
